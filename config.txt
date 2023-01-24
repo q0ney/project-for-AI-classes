@@ -1,0 +1,90 @@
+[NEAT]
+# nie moze przekroczyc wartosci z threshholdu
+fitness_criterion     = max
+# maksymalna wartosc fitnessu
+fitness_threshold     = 2000
+# ilosc samochodow w generacji
+pop_size              = 100
+# gdy wszystkie elementy w ewolucji wygina zostanie wylosowana nowa (jesli wartosc jest TRUE)
+reset_on_extinction   = False
+
+[DefaultGenome]
+# atrybut funkcji aktywacji przypisywany do nowych wezlow
+activation_default      = tanh
+# prawdopodobienstwo ze mutacja zastapi funckje aktywacji wezla
+activation_mutate_rate  = 0.0
+# lista oddzielonych funckji ktore moga byc uzywane przez wezly
+activation_options      = tanh
+
+# node aggregation options
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5
+conn_delete_prob        = 0.5
+
+# connection enable options
+enabled_default         = True
+enabled_mutate_rate     = 0.01
+
+feed_forward            = True
+initial_connection      = full_direct
+
+# node add/remove rates
+node_add_prob           = 0.2
+node_delete_prob        = 0.2
+
+# network parameters
+num_hidden              = 4
+num_inputs              = 6
+num_outputs             = 2
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+# prog dzieki ktoremu osobniki sa uznawane za przynaleznosc do tego samego gatunku
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+# obliczanie kondycji gatunku
+species_fitness_func = max
+# jesli gatunki nie wykazaly poprawy w przeciagu 7 generacji zostana usuniete
+max_stagnation       = 7
+# ochrona liczby gatunkow z najwyzsza kondycja przed stagnacja w celu nie usuwania wszystkich gatunkow ktore moglyby wyginac
+species_elitism      = 2
+
+[DefaultReproduction]
+# liczba najlepszych gatunkow ktore zostana zachowane w niezmienionej formie z pokolenia na pokolenie
+elitism            = 2
+survival_threshold = 0.2
